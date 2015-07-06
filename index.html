@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja" ng-app="mainModule">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Social Kenchin</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/application.css" rel="stylesheet">
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <script src="./js/jqury.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular-route.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular-resource.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular-sanitize.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular-animate.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-strap/2.1.5/angular-strap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-strap/2.1.5/angular-strap.tpl.min.js"></script>
+    <script src="./js/ie-emulation-modes-warning.js"></script>
+    <script src="./js/menu.js"></script>
+
+</head>
+
+<body ng-controller="mainCtrl">
+
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <img src="img/SkS_header.png" width="375">
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Example row of columns -->
+        <div class="row cont kenchin">
+            <div class="col-xs-6">
+                <p class="title">
+                    <a href="./detail_1.html">けんちん汁＠北鎌倉</a>
+                </p>
+            </div>
+            <div class="col-xs-5">
+                <p class="time">7月5日（日） 18:00</p>
+            </div>
+        </div>
+        <div class="row cont curry">
+            <div class="col-xs-6">
+                <p class="title">
+                    <a href="#">カレー＠北鎌倉</a>
+                </p>
+            </div>
+            <div class="col-xs-5">
+                <p class="time">7月5日（日） 18:00</p>
+            </div>
+        </div>
+        <div class="row cont soba">
+            <div class="col-xs-6">
+                <p class="title">
+                    <a href="#">やきそば＠北鎌倉</a>
+                </p>
+            </div>
+            <div class="col-xs-5">
+                <p class="time">7月5日（日） 18:00</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">絞り込む</div>
+                    <div class="panel-body">
+                        <form class="form-inline">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="blankRadio" id="blankRadio1" value="option1" aria-label=""> 場所で探す
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>最寄駅</label>
+                                <input type="text" class="form-control">
+                            </div>
+
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="blankRadio" id="blankRadio1" value="option1" aria-label=""> 料理でさがす
+                                </label>
+                            </div>
+                            <select id="sel" ng-model="menuCategory" ng-options="category as category.categoryName for category in categories">
+                                <option value="">選択してください</option>
+                            </select>
+                            <br>
+                            <br>
+                            <button type="button" id="src" class="btn btn-warning" href="index_no.html" ng-click="search(menuCategory.categoryId)">上の条件で絞り込む</button>
+                            <div ng-repeat="menu in menues">
+                                <div>
+                                    <ul>
+                                        <li>レシピ：{{menu.recipeTitle}}</li>
+                                        <li>材料：{{menu.recipeMaterial}} </li>
+                                        <li><a ng-href="{{menu.recipeUrl}}" target="_blank" ng-show="menuCategory">詳細ページ</a>
+                                        </li>
+                                    </ul>
+                                    <p><img ng-src="{{menu.mediumImageUrl}}" />
+                                    </p>
+                                </div>
+
+                            </div>
+                    </div>
+</body>
+</head>
+
+</html>
+</div>
+</div>
+<!--//col-12-->
+</div>
+<!--//row-->
+</div>
+<!-- /container -->
+<footer>
+    <div class="row foot">
+    </div>
+</footer>
+
+
+<!-- Bootstrap core JavaScript
+		================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="./js/ie10-viewport-bug-workaround.js"></script>
+</body>
+
+</html>
+
+<script>
+    $(function () {
+        $('#src').on('click', function () {
+            var obj = $('select.#sel :selected');
+            if ($('#sel:selected').val() == 17) {
+                $('#src').attr('href', 'index_kenchin.html');
+            }
+        });
+    });
+</script>
